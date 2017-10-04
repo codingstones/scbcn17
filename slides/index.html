@@ -143,13 +143,45 @@
 
           <section data-markdown>
             <script type="text/template">
-              ## Escollos
+              ## Luego ya no tan bien
 
               - Karma
               - Tests unitarios lentos
               - Acoplamiento al framework
               - Boilerplate en unit tests
             </script>
+          </section>
+
+          <section>
+            <pre>
+              <code data-trim data-noescape>
+describe('Issue Detail Component Should', () => {
+  beforeEach(async(() => {
+    unreadCountServiceStub = createSpyObj('MyService', ['count', 'checkCounter']);
+    unreadCountServiceStub.count.and.returnValue(Observable.of({}));
+
+    TestBed.configureTestingModule({
+      declarations: [IssueDetail, PaginatePipe],
+      imports: [MomentModule],
+      schemas: [ NO_ERRORS_SCHEMA ],
+      providers: [
+        CurrentSelectionService,
+        NotificationService,
+        AttachmentUploadService,
+        { provide: BackendService, useClass: BackendServiceMock},
+        { provide: AdministrationService, useClass: BackendServiceMock},
+        { provide: ActivatedRoute, useValue: new MockAsyncActivatedRoute({id: ANY_ID})},
+        { provide: UnreadIssuesCounterService, useValue: unreadCountServiceStub},
+        { provide: ComponentFixtureAutoDetect, useValue: true }
+      ]
+    })
+
+    fixture = TestBed.createComponent(IssueDetail);
+    issueDetail = fixture.componentInstance;
+
+  }));
+              </code>
+            </pre>
           </section>
 
           <section data-markdown>
