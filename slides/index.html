@@ -191,16 +191,83 @@ describe('Issue Detail Component Should', () => {
           </section>
         </section>
 
-        <section data-markdown>
-          <script type="text/template">
-            ## Retiro en Alcañiz
-          </script>
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Retiro en Alcañiz
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Aproximación Hexagonal
+
+              - Core sin framework
+              - SOLID
+              - Mocha + Sinon
+              - ES6 y clases
+              - Módulo node
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Uso desde frameworks
+
+              - Angular 2
+              - React
+              - Vue
+            </script>
+          </section>
         </section>
 
-        <section data-markdown>
-          <script type="text/template">
-            ## Separación de Core + Framework
-          </script>
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Integración Core y Angular 2
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Los cambios
+
+              - Mocha, chai y sinon
+              - Componentes core en JS
+              - Test unitarios, en node
+              - Extensión desde artefactos
+              - Misma base de código
+            </script>
+          </section>
+
+          <section>
+            <pre>
+              <code data-trim data-noescape>
+beforeEach(()=> {
+  chatPanelStub = stubFor('showAutoScroller', 'scrollBottom');
+  issueDetail = new IssueDetailCmp();
+  issueDetail.chatPanel = chatPanelStub;
+  issueDetail.issue = {id: ISSUE_ID};
+})
+              </code>
+            </pre>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Pero...
+
+              - Aún acoplados a nivel de interfaz
+              - Muchos ficheros
+              - Generación de scaffold
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ![Issue Detail](images/issue-detail.png)
+            </script>
+          </section>
         </section>
 
         <section data-markdown>
